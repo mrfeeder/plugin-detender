@@ -1,0 +1,38 @@
+<?php
+    /**
+    * Plugin Name:  Contact Detender
+    * Plugin URI:  http://google.com
+    * Description: this is plugin for increase contact
+    * Version: 1.0
+    * Author: Mr Detender
+    * Author URI: http://facebook.com
+    * License: GPLv2 or later
+    */
+?>
+<?php
+    if (!class_exists('Contact_detender')) {
+
+        class Contact_detender
+        {
+
+            function __construct()
+            {
+                if (!function_exists('add_shortcode')) {
+                    return;
+                }
+                add_shortcode( 'hello' , array(&$this, 'hello_func') );
+            }
+            function hello_func($atts = array(), $content = null){
+                extract(shortcode_atts(array('name' => 'Word'), $atts));
+                return '<div>
+                    <p>Hello '.$name.'!!!</p>
+                </div>';
+            }
+        }
+        function mfpd_load(){
+            global $mfpd;
+            $mfpd = new Contact_detender();
+        }
+    }
+    add_action( 'plugins_loaded', 'mfpd_load' );
+?>
