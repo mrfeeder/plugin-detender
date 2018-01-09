@@ -10,6 +10,8 @@
     */
 ?>
 <?php
+    get_template_directory('/functions/mrfeeders.php', true);
+    get_template_directory('/functions/mrfeeder.php', true);
     // if (!class_exists('Contact_detender')) {
 
     //     class Contact_detender
@@ -43,5 +45,4 @@
         echo "<h1>Hello World!</h1>";
     }
     add_action('admin_menu', 'contact_plugin_setup_menu');
-
 ?>
