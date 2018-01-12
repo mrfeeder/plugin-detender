@@ -38,6 +38,12 @@
     add_action('admin_menu', 'contact_plugin_setup_menu');
 
 
+    function my_theme_scripts() {
+        wp_enqueue_script( 'my-great-script', get_template_directory_uri() . '/js/jquery-ui.js', array( 'jquery' ), '1.0.0', true );
+        wp_enqueue_style( 'style', get_template_directory_uri() . 'css/jquery-ui.css', '1.0.0', true );
+    }
+    add_action( 'admin_enqueue_scripts', 'my_theme_scripts' );
+
     // add_action( 'admin_init', 'mrfeeder_admin_init' );
 
     // function mrfeeder_admin_init() {
