@@ -18,29 +18,23 @@
     function contact_mrfeeder_init(){
         echo "<h1>Contact of Mrfeeder</h1>
             <button type=''>Add New</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>title</th>
-                        <th>Shortcode</th>
-                        <th>Author</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id='form-mrfeeder'>
+                <div class='area-for-element'>
+
+                </div>
+                <textarea name='area-for-main'></textarea>
+            </div>
         ";
     }
     add_action('admin_menu', 'contact_plugin_setup_menu');
 
 
     function my_theme_scripts() {
-        wp_enqueue_script( 'my-great-script', get_template_directory_uri() . '/js/jquery-ui.js', array( 'jquery' ), '1.0.0', true );
-        wp_enqueue_style( 'style', get_template_directory_uri() . 'css/jquery-ui.css', '1.0.0', true );
+        wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/js/jquery-ui.js', array( 'jquery' ), '1.0.0', true );
+        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery-ui' ), '1.0.0', true );
+        wp_enqueue_script( 'main-script', get_template_directory_uri() . '/js/main-script.js', array( 'bootstrap' ), '1.0.0', true );
+        wp_enqueue_style( 'jquery-ui', get_template_directory_uri() . 'css/jquery-ui.css', '1.0.0', true );
+        wp_enqueue_style( 'bootstrap', get_template_directory_uri() . 'css/bootstrap.min.css', '1.0.0', true );
     }
     add_action( 'admin_enqueue_scripts', 'my_theme_scripts' );
 
