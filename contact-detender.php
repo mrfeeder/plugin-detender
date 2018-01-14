@@ -20,7 +20,26 @@
             <button type=''>Add New</button>
             <div id='form-mrfeeder'>
                 <div class='area-for-element'>
+                    <ul class='nav nav-tabs'>
+                      <li class='active'><a data-toggle='tab' href='#home'>constructor</a></li>
+                      <li><a data-toggle='tab' href='#menu1'>element</a></li>
+                      <li><a data-toggle='tab' href='#menu2'>properties</a></li>
+                    </ul>
 
+                    <div class='tab-content'>
+                      <div id='home' class='tab-pane fade in active'>
+                        <h3>constructor</h3>
+                        <p>Some content.</p>
+                      </div>
+                      <div id='menu1' class='tab-pane fade'>
+                        <h3>element</h3>
+                        <p>Some content in menu 1.</p>
+                      </div>
+                      <div id='menu2' class='tab-pane fade'>
+                        <h3>properties</h3>
+                        <p>Some content in menu 2.</p>
+                      </div>
+                    </div>
                 </div>
                 <textarea name='area-for-main'></textarea>
             </div>
@@ -30,11 +49,12 @@
 
 
     function my_theme_scripts() {
-        wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/js/jquery-ui.js', array( 'jquery' ), '1.0.0', true );
-        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery-ui' ), '1.0.0', true );
-        wp_enqueue_script( 'main-script', get_template_directory_uri() . '/js/main-script.js', array( 'bootstrap' ), '1.0.0', true );
-        wp_enqueue_style( 'jquery-ui', get_template_directory_uri() . 'css/jquery-ui.css', '1.0.0', true );
-        wp_enqueue_style( 'bootstrap', get_template_directory_uri() . 'css/bootstrap.min.css', '1.0.0', true );
+        wp_enqueue_script( 'jquery-ui', plugin_dir_url( __FILE__ ) . '/js/jquery-ui.js', array( 'jquery' ), '1.0.0', true );
+        wp_enqueue_script( 'tether', 'https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js', array( 'jquery-ui' ), '1.0.0', true );
+        wp_enqueue_script( 'bootstrap', plugin_dir_url( __FILE__ ) . '/js/bootstrap.min.js', array( 'tether' ), '1.0.0', true );
+        wp_enqueue_script( 'main-script', plugin_dir_url( __FILE__ ) . '/js/main-script.js', array( 'bootstrap' ), '1.0.0', true );
+        wp_enqueue_style( 'jquery-ui', plugin_dir_url( __FILE__ ) . 'css/jquery-ui.css', '1.0.0', true );
+        wp_enqueue_style( 'bootstrap', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css', '1.0.0', true );
     }
     add_action( 'admin_enqueue_scripts', 'my_theme_scripts' );
 
