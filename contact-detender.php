@@ -27,17 +27,44 @@
                     </ul>
 
                     <div class='tab-content'>
-                      <div id='home' class='tab-pane fade in active'>
-                        <h3>constructor</h3>
-                        <p>Some content.</p>
+                      <div id='home' class='tab-pane fade in active show'>
+                        <button type=''>div 1 column</button>
+                        <button type=''>div 2 columns</button>
+                        <button type=''>div 3 columns</button>
+                        <button type=''>div 4 columns</button>
+                        <button type=''>div 5 columns</button>
+                        <button type=''>div 6 columns</button>
+                        <button type=''>div 7 columns</button>
+                        <button type=''>div 8 columns</button>
+                        <button type=''>div 9 columns</button>
+                        <button type=''>div 10 columns</button>
+                        <button type=''>div 11 columns</button>
+                        <button type=''>div 12 columns</button>
+                        <button type=''>section</button>
+                        <button type=''>color section</button>
                       </div>
                       <div id='menu1' class='tab-pane fade'>
-                        <h3>element</h3>
-                        <p>Some content in menu 1.</p>
+                        <button type=''>image</button>
+                        <button type=''>slider</button>
+                        <button type=''>text</button>
+                        <button type=''>email</button>
+                        <button type=''>input</button>
+                        <button type=''>button</button>
+                        <button type=''>ul</button>
+                        <button type=''>ol</button>
+                        <button type=''>li</button>
+                        <button type=''>video</button>
+                        <button type=''>link</button>
+                        <button type=''>table</button>
+                        <button type=''>td</button>
+                        <button type=''>th</button>
+                        <button type=''>tr</button>
+                        <button type=''>textarea</button>
                       </div>
                       <div id='menu2' class='tab-pane fade'>
-                        <h3>properties</h3>
-                        <p>Some content in menu 2.</p>
+                        <button type=''>class</button>
+                        <button type=''>id</button>
+                        <button type=''>style</button>
                       </div>
                     </div>
                 </div>
@@ -55,6 +82,7 @@
         wp_enqueue_script( 'main-script', plugin_dir_url( __FILE__ ) . '/js/main-script.js', array( 'bootstrap' ), '1.0.0', true );
         wp_enqueue_style( 'jquery-ui', plugin_dir_url( __FILE__ ) . 'css/jquery-ui.css', '1.0.0', true );
         wp_enqueue_style( 'bootstrap', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css', '1.0.0', true );
+        wp_enqueue_style( 'app', plugin_dir_url( __FILE__ ) . 'css/app.css', '1.0.0', true );
     }
     add_action( 'admin_enqueue_scripts', 'my_theme_scripts' );
 

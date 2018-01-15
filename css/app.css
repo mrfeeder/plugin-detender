@@ -1,0 +1,7 @@
+#form-mrfeeder {
+    padding-top: 30px;
+}
+#form-mrfeeder .nav li{
+    width: 33.33%;
+    max-width: 300px;
+}
