@@ -68,7 +68,9 @@
                       </div>
                     </div>
                 </div>
-                <textarea name='area-for-main'></textarea>
+                <div class='outside-area-drop'><div class='area-for-drop'>
+
+                </div></div>
             </div>
         ";
     }
