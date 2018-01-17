@@ -28,18 +28,18 @@
 
                     <div class='tab-content'>
                       <div id='home' class='tab-pane fade in active show'>
-                        <button type=''>div 1 column</button>
-                        <button type=''>div 2 columns</button>
-                        <button type=''>div 3 columns</button>
-                        <button type=''>div 4 columns</button>
-                        <button type=''>div 5 columns</button>
-                        <button type=''>div 6 columns</button>
-                        <button type=''>div 7 columns</button>
-                        <button type=''>div 8 columns</button>
-                        <button type=''>div 9 columns</button>
-                        <button type=''>div 10 columns</button>
-                        <button type=''>div 11 columns</button>
-                        <button type=''>div 12 columns</button>
+                        <button type='' class='col-md-1'>div 1/12 column</button>
+                        <button type='' class='col-md-2'>div 2/12 columns</button>
+                        <button type='' class='col-md-3'>div 3/12 columns</button>
+                        <button type='' class='col-md-4'>div 4/12 columns</button>
+                        <button type='' class='col-md-5'>div 5/12 columns</button>
+                        <button type='' class='col-md-6'>div 6/12 columns</button>
+                        <button type='' class='col-md-7'>div 7/12 columns</button>
+                        <button type='' class='col-md-8'>div 8/12 columns</button>
+                        <button type='' class='col-md-9'>div 9/12 columns</button>
+                        <button type='' class='col-md-10'>div 10/12 columns</button>
+                        <button type='' class='col-md-11'>div 11/12 columns</button>
+                        <button type='' class='col-md-12'>div 12/12 columns</button>
                         <button type=''>section</button>
                         <button type=''>color section</button>
                       </div>
