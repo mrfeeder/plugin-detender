@@ -28,43 +28,43 @@
 
                     <div class='tab-content'>
                       <div id='home' class='tab-pane fade in active show'>
-                        <button type='' class='col-md-1'>div 1/12 column</button>
-                        <button type='' class='col-md-2'>div 2/12 columns</button>
-                        <button type='' class='col-md-3'>div 3/12 columns</button>
-                        <button type='' class='col-md-4'>div 4/12 columns</button>
-                        <button type='' class='col-md-5'>div 5/12 columns</button>
-                        <button type='' class='col-md-6'>div 6/12 columns</button>
-                        <button type='' class='col-md-7'>div 7/12 columns</button>
-                        <button type='' class='col-md-8'>div 8/12 columns</button>
-                        <button type='' class='col-md-9'>div 9/12 columns</button>
-                        <button type='' class='col-md-10'>div 10/12 columns</button>
-                        <button type='' class='col-md-11'>div 11/12 columns</button>
-                        <button type='' class='col-md-12'>div 12/12 columns</button>
-                        <button type=''>section</button>
-                        <button type=''>color section</button>
+                        <div class='col-md-1'>div 1/12 column</div>
+                        <div class='col-md-2'>div 2/12 columns</div>
+                        <div class='col-md-3'>div 3/12 columns</div>
+                        <div class='col-md-4'>div 4/12 columns</div>
+                        <div class='col-md-5'>div 5/12 columns</div>
+                        <div class='col-md-6'>div 6/12 columns</div>
+                        <div class='col-md-7'>div 7/12 columns</div>
+                        <div class='col-md-8'>div 8/12 columns</div>
+                        <div class='col-md-9'>div 9/12 columns</div>
+                        <div class='col-md-10'>div 10/12 columns</div>
+                        <div class='col-md-11'>div 11/12 columns</div>
+                        <div class='col-md-12'>div 12/12 columns</div>
+                        <div>section</div>
+                        <div>color section</div>
                       </div>
                       <div id='menu1' class='tab-pane fade'>
-                        <button type=''>image</button>
-                        <button type=''>slider</button>
-                        <button type=''>text</button>
-                        <button type=''>email</button>
-                        <button type=''>input</button>
-                        <button type=''>button</button>
-                        <button type=''>ul</button>
-                        <button type=''>ol</button>
-                        <button type=''>li</button>
-                        <button type=''>video</button>
-                        <button type=''>link</button>
-                        <button type=''>table</button>
-                        <button type=''>td</button>
-                        <button type=''>th</button>
-                        <button type=''>tr</button>
-                        <button type=''>textarea</button>
+                        <div>image</div>
+                        <div>slider</div>
+                        <div>text</div>
+                        <div>email</div>
+                        <div>input</div>
+                        <div>div</div>
+                        <div>ul</div>
+                        <div>ol</div>
+                        <div>li</div>
+                        <div>video</div>
+                        <div>link</div>
+                        <div>table</div>
+                        <div>td</div>
+                        <div>th</div>
+                        <div>tr</div>
+                        <div>textarea</div>
                       </div>
                       <div id='menu2' class='tab-pane fade'>
-                        <button type=''>class</button>
-                        <button type=''>id</button>
-                        <button type=''>style</button>
+                        <div>class</div>
+                        <div>id</div>
+                        <div>style</div>
                       </div>
                     </div>
                 </div>

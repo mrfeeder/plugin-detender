@@ -15,3 +15,9 @@
     min-width: 200px;
     border: 1px solid #ccc;
 }
+.area-for-drop div,
+#form-mrfeeder .tab-pane div{
+    cursor: pointer;
+    padding: 10px;
+    border: 1px dashed #333;
+}
