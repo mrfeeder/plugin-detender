@@ -71,10 +71,24 @@
                 <div class='outside-area-drop'><div class='area-for-drop'>
 
                 </div></div>
+                <button type='submit' id='custom_editor_box'>sav</button>
             </div>
         ";
     }
     add_action('admin_menu', 'contact_plugin_setup_menu');
+
+
+    $editor_id = 'custom_editor_box';
+    $uploaded_csv = get_post_meta( $post->ID, 'custom_editor_box', true);
+    wp_editor( $uploaded_csv, $editor_id );
+
+    function save_wp_editor_fields(){
+        global $post;
+        update_post_meta($post->ID, 'custom_editor_box', $_POST['custom_editor_box']);
+    }
+    add_action( 'save_post', 'save_wp_editor_fields' );
+
+
 
 
     function my_theme_scripts() {

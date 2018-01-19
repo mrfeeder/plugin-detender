@@ -18,6 +18,7 @@
                 accept: ":not(.ui-sortable-helper)",
                 drop : function(ev, ui) {
                     $(ui.draggable).clone().appendTo($(this));
+                    $(ui.droppable).clone().appendTo($(this));
                     // $(ui.draggable).remove();
                 }
             });
