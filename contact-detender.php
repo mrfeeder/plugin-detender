@@ -78,9 +78,9 @@
     add_action('admin_menu', 'contact_plugin_setup_menu');
 
 
-    $editor_id = 'custom_editor_box';
-    $uploaded_csv = get_post_meta( $post->ID, 'custom_editor_box', true);
-    wp_editor( $uploaded_csv, $editor_id );
+    // $editor_id = 'custom_editor_box';
+    // $uploaded_csv = get_post_meta( $post->ID, 'custom_editor_box', true);
+    // wp_editor( $uploaded_csv, $editor_id );
 
     function save_wp_editor_fields(){
         global $post;
@@ -101,6 +101,49 @@
         wp_enqueue_style( 'app', plugin_dir_url( __FILE__ ) . 'css/app.css', '1.0.0', true );
     }
     add_action( 'admin_enqueue_scripts', 'my_theme_scripts' );
+
+    function mood_music( $post_id, $action = 'get', $mood = 0, $listening_to = 0 ) {
+      switch ($action) {
+        case 'update' :
+          if( ! $mood && ! $listening_to )
+            //If nothing is given to update, end here
+            return false;
+          if( $mood ) {
+            add_post_meta( $post_id, 'mood', $mood );
+            return true;
+            }
+          if( $listening_to ) {
+            add_post_meta( $post_id, 'listening_to', $listening_to, true ) or
+              update_post_meta( $post_id, 'listening_to', $listening_to );
+            return true;
+          }
+        case 'delete' :
+          delete_post_meta( $post_id, 'mood' );
+          delete_post_meta( $post_id, 'listening_to' );
+        break;
+        case 'get' :
+          $stored_moods = get_post_meta( $post_id, 'mood' );
+          $stored_listening_to = get_post_meta( $post_id, 'listening_to', 'true' );
+          $return = '<div class="mood-music">';
+          if ( ! empty( $stored_moods ) )
+            $return .= '<strong>Current Mood</strong>: ';
+          foreach( $stored_moods as $mood )
+            $return .= $mood . ', ';
+          $return .= '<br/>';
+
+          if ( ! empty( $stored_listening_to ) ) {
+            $return .= '<strong>Currently Listening To</strong>: ';
+            $return .= $stored_listening_to;
+            }
+          $return .= '</div>';
+
+          return $return;
+        default :
+          return false;
+        break;
+      }
+    }
+
 
     // add_action( 'admin_init', 'mrfeeder_admin_init' );
 
