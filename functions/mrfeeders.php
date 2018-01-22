@@ -1,55 +1,63 @@
 <?php
+    function contact_mrfeeder_init(){
+        echo "<h1>Contact of Mrfeeder</h1>
+            <button type=''>Add New</button>
+            <div id='form-mrfeeder'>
+                <div class='area-for-element'>
+                    <ul class='nav nav-tabs'>
+                      <li class='active'><a data-toggle='tab' href='#home'>constructor</a></li>
+                      <li><a data-toggle='tab' href='#menu1'>element</a></li>
+                      <li><a data-toggle='tab' href='#menu2'>properties</a></li>
+                    </ul>
 
-function mrfeeders_categories()
-{
-    $terms = get_terms(array(
-        'taxonomy'    => 'mrfeeders_category',
-        'hide_empty'  => false,
-        'number'      => 3,
-        'order'       => 'DESC',
-        'post_status' => 'publish',
-    ));
+                    <div class='tab-content'>
+                      <div id='home' class='tab-pane fade in active show'>
+                        <div class='col-md-1'>div 1/12 column</div>
+                        <div class='col-md-2'>div 2/12 columns</div>
+                        <div class='col-md-3'>div 3/12 columns</div>
+                        <div class='col-md-4'>div 4/12 columns</div>
+                        <div class='col-md-5'>div 5/12 columns</div>
+                        <div class='col-md-6'>div 6/12 columns</div>
+                        <div class='col-md-7'>div 7/12 columns</div>
+                        <div class='col-md-8'>div 8/12 columns</div>
+                        <div class='col-md-9'>div 9/12 columns</div>
+                        <div class='col-md-10'>div 10/12 columns</div>
+                        <div class='col-md-11'>div 11/12 columns</div>
+                        <div class='col-md-12'>div 12/12 columns</div>
+                        <div>section</div>
+                        <div>color section</div>
+                      </div>
+                      <div id='menu1' class='tab-pane fade'>
+                        <div>image</div>
+                        <div>slider</div>
+                        <div>text</div>
+                        <div>email</div>
+                        <div>input</div>
+                        <div>div</div>
+                        <div>ul</div>
+                        <div>ol</div>
+                        <div>li</div>
+                        <div>video</div>
+                        <div>link</div>
+                        <div>table</div>
+                        <div>td</div>
+                        <div>th</div>
+                        <div>tr</div>
+                        <div>textarea</div>
+                      </div>
+                      <div id='menu2' class='tab-pane fade'>
+                        <div>class</div>
+                        <div>id</div>
+                        <div>style</div>
+                      </div>
+                    </div>
+                </div>
+                <div class='outside-area-drop'><div class='area-for-drop'>
 
-    return $terms;
-}
-
-function mrfeeders_category_image($term)
-{
-    $term_image = get_term_meta($term->term_id, 'ncp_category_image', true) ?: '';
-    return wp_get_attachment_url($term_image);
-}
-
-function mrfeeders_page()
-{
-    return get_page_by_path('mrfeeder');
-}
-
-function mrfeeders($term)
-{
-    $args = array(
-        'post_type'      => array('mrfeeder'),
-        'paged'          => '1',
-        'posts_per_page' => '5',
-        'post_status'    => 'publish',
-        'tax_query'      => array(
-            array(
-                'taxonomy'         => 'mrfeeders_category',
-                'field'            => 'term_id',
-                'terms'            => array($term->term_id),
-                'include_children' => false,
-            ),
-        ),
-    );
-    return new WP_Query($args);
-}
-
-function article_mrfeeders()
-{
-    $args = array(
-        'post_type'   => array('mrfeeder'),
-        'post_status' => 'publish',
-        'orderby'     => 'rand',
-        'post_status' => 'publish',
-    );
-    return new WP_Query($args);
-}
+                </div></div>
+                <button type='submit' id='custom_editor_box'>sav</button>
+            </div>
+        ";
+    }
+    add_action('admin_menu', 'contact_plugin_setup_menu');
+?>
