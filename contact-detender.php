@@ -10,8 +10,10 @@
     */
 ?>
 <?php
-    get_template_directory('/functions/mrfeeders.php', true);
-    get_template_directory('/functions/mrfeeder.php', true);
+
+    include( plugin_dir_path( __FILE__ ) . '/functions/mrfeeders.php');
+    include( plugin_dir_path( __FILE__ ) . '/functions/mrfeeder.php');
+
     function contact_plugin_setup_menu(){
         add_menu_page( 'Contact Mrfeeder Plugin Page', 'Contact Mrfeeder Plugin', 'manage_options', 'contact-mrfeeder', 'contact_mrfeeder_init' );
     }
@@ -80,17 +82,17 @@
     }
 
     // Automatically load all functions, shortcodes and widgets
-    $_dirs = array(
-        TEMPLATEPATH . '/functions/*.php',
-    );
-    foreach ($_dirs as $_dir) {
-        foreach (glob($_dir) as $_file) {
-            require_once $_file;
-        }
-    }
+    // $_dirs = array(
+    //     TEMPLATEPATH . '/functions/*.php',
+    // );
+    // foreach ($_dirs as $_dir) {
+    //     foreach (glob($_dir) as $_file) {
+    //         require_once $_file;
+    //     }
+    // }
     // Autoload classes when they are used
-    spl_autoload_register(function($class) {
-        if (is_file(TEMPLATEPATH . "/classes/$class.php"))
-            require_once TEMPLATEPATH . "/classes/$class.php";
-    });
+    // spl_autoload_register(function($class) {
+    //     if (is_file(TEMPLATEPATH . "/classes/$class.php"))
+    //         require_once TEMPLATEPATH . "/classes/$class.php";
+    // });
 ?>
