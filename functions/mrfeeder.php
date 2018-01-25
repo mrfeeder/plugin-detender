@@ -1,49 +1,42 @@
 <?php
 
-    // $editor_id = 'custom_editor_box';
-    // $uploaded_csv = get_post_meta( $post->ID, 'custom_editor_box', true);
-    // wp_editor( $uploaded_csv, $editor_id );
 
+    add_action( 'admin_init', 'mrfeeder_admin_init' );
 
+    function mrfeeder_admin_init() {
+        do_action( 'mrfeeder_admin_init' );
+    }
 
+    add_action( 'admin_menu', 'mrfeeders_admin_menu', 9 );
 
+    function mrfeeders_admin_menu() {
+        global $_wp_last_object_menu;
 
-    // add_action( 'admin_init', 'mrfeeder_admin_init' );
+        $_wp_last_object_menu++;
 
-    // function mrfeeder_admin_init() {
-    //     do_action( 'mrfeeder_admin_init' );
-    // }
+        add_menu_page( __( 'Contact Form Mrfeeder', 'contact-form-mrfeeder' ),
+            __( 'Contact', 'contact-form-mrfeeder' ),
+            'mrfeeder_read_contact_forms', 'mrfeeder',
+            'mrfeeder_admin_management_page', 'dashicons-email',
+            $_wp_last_object_menu );
 
-    // add_action( 'admin_menu', 'mrfeeder_admin_menu', 9 );
+        $edit = add_submenu_page( 'mrfeeder',
+            __( 'Edit Contact Form', 'contact-form-mrfeeder' ),
+            __( 'Contact Forms', 'contact-form-mrfeeder' ),
+            'mrfeeder_read_contact_forms', 'mrfeeder',
+            'mrfeeder_admin_management_page' );
 
-    // function mrfeeder_admin_menu() {
-    //     global $_wp_last_object_menu;
+        add_action( 'load-' . $edit, 'mrfeeder_load_contact_form_admin' );
 
-    //     $_wp_last_object_menu++;
+        $addnew = add_submenu_page( 'mrfeeder',
+            __( 'Add New Contact Form', 'contact-form-mrfeeder' ),
+            __( 'Add New', 'contact-form-mrfeeder' ),
+            'mrfeeder_edit_contact_forms', 'mrfeeder-new',
+            'mrfeeder_admin_add_new_page' );
 
-    //     add_menu_page( __( 'Contact Form Mrfeeder', 'contact-form-mrfeeder' ),
-    //         __( 'Contact', 'contact-form-mrfeeder' ),
-    //         'mrfeeder_read_contact_forms', 'mrfeeder',
-    //         'mrfeeder_admin_management_page', 'dashicons-email',
-    //         $_wp_last_object_menu );
+        add_action( 'load-' . $addnew, 'mrfeeder_load_contact_form_admin' );
 
-    //     $edit = add_submenu_page( 'mrfeeder',
-    //         __( 'Edit Contact Form', 'contact-form-mrfeeder' ),
-    //         __( 'Contact Forms', 'contact-form-mrfeeder' ),
-    //         'mrfeeder_read_contact_forms', 'mrfeeder',
-    //         'mrfeeder_admin_management_page' );
-
-    //     add_action( 'load-' . $edit, 'mrfeeder_load_contact_form_admin' );
-
-    //     $addnew = add_submenu_page( 'mrfeeder',
-    //         __( 'Add New Contact Form', 'contact-form-mrfeeder' ),
-    //         __( 'Add New', 'contact-form-mrfeeder' ),
-    //         'mrfeeder_edit_contact_forms', 'mrfeeder-new',
-    //         'mrfeeder_admin_add_new_page' );
-
-    //     add_action( 'load-' . $addnew, 'mrfeeder_load_contact_form_admin' );
-
-    // }
+    }
 
     // add_filter( 'set-screen-option', 'mrfeeder_set_screen_options', 10, 3 );
 

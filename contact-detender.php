@@ -81,18 +81,4 @@
       }
     }
 
-    // Automatically load all functions, shortcodes and widgets
-    // $_dirs = array(
-    //     TEMPLATEPATH . '/functions/*.php',
-    // );
-    // foreach ($_dirs as $_dir) {
-    //     foreach (glob($_dir) as $_file) {
-    //         require_once $_file;
-    //     }
-    // }
-    // Autoload classes when they are used
-    // spl_autoload_register(function($class) {
-    //     if (is_file(TEMPLATEPATH . "/classes/$class.php"))
-    //         require_once TEMPLATEPATH . "/classes/$class.php";
-    // });
 ?>
