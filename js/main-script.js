@@ -1,6 +1,7 @@
 (function($){
     $(document)
     .ready(function(){
+        var count = 1;
         // $(".area-for-drop").sortable();
         // $(".area-for-drop").disableSelection();
         // $(".dropindrop").droppable({
@@ -14,7 +15,7 @@
             containment : "#container",
             helper : 'clone',
             revert : 'valid',
-            cancel:false
+            cancel:true
         });
         $(".area-for-drop").droppable({
             hoverClass : 'ui-state-highlight',
@@ -26,15 +27,12 @@
                 // $(this).droppable('option', 'accept', ui.draggable);
                 $(ui.droppable).clone().appendTo($(".outside-area-drop"));
                 // $(ui.draggable).remove();
+                count = count ++;
             }
         });
         // $(".area-for-drop div").ondrag($(this).removeClass(""));
         $(".area-for-drop").click(function(){
             console.log("2");
-        });
-        $(".outside-area-drop div").click(function(){
-            $(this).removeClass("ui-droppable");
-            console.log("1");
         });
         $(".area-for-drop div").draggable({
             drag: function() {
@@ -45,6 +43,15 @@
             cancel:false
         });
     })
-    // .change(function(){
-    // });
+    .change(function(){
+            console.log(count);
+        if($(".outside-area-drop").length == count) {
+          //it doesn't exist
+            $(".outside-area-drop div").click(function(){
+                // $(this).removeClass("ui-droppable");
+                console.log("1");
+            });
+        }
+
+    });
 })(jQuery);

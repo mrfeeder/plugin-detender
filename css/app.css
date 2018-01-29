@@ -7,6 +7,7 @@
 }
 .outside-area-drop {
     padding: 20px;
+    position: relative;
 }
 .area-for-drop {
     width: 100%;
@@ -20,4 +21,8 @@
     cursor: pointer;
     padding: 10px;
     border: 1px dashed #333;
+}
+.dropindrop {
+    cursor: pointer;
+    height: 40px;
 }

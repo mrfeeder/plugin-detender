@@ -2,7 +2,7 @@
     function contact_mrfeeder_init(){
         echo "<h1>Contact of Mrfeeder</h1>
             <button type=''>Add New</button>
-            <div id='form-mrfeeder'>
+            <div id='form-mrfeeder' method='post' action='options.php'>
                 <div class='area-for-element'>
                     <ul class='nav nav-tabs'>
                       <li class='active'><a data-toggle='tab' href='#home'>constructor</a></li>
@@ -55,7 +55,7 @@
                 <div class='outside-area-drop'><div class='area-for-drop'>
 
                 </div></div>
-                <button type='submit' id='custom_editor_box'>sav</button>
+                <button type='submit' id='custom_editor_box' " . submit_button() . ">sav</button>
             </div>
         ";
     }

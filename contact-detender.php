@@ -39,46 +39,46 @@
     }
     add_action( 'admin_enqueue_scripts', 'my_theme_scripts' );
 
-    function mood_music( $post_id, $action = 'get', $mood = 0, $listening_to = 0 ) {
-      switch ($action) {
-        case 'update' :
-          if( ! $mood && ! $listening_to )
-            //If nothing is given to update, end here
-            return false;
-          if( $mood ) {
-            add_post_meta( $post_id, 'mood', $mood );
-            return true;
-            }
-          if( $listening_to ) {
-            add_post_meta( $post_id, 'listening_to', $listening_to, true ) or
-              update_post_meta( $post_id, 'listening_to', $listening_to );
-            return true;
-          }
-        case 'delete' :
-          delete_post_meta( $post_id, 'mood' );
-          delete_post_meta( $post_id, 'listening_to' );
-        break;
-        case 'get' :
-          $stored_moods = get_post_meta( $post_id, 'mood' );
-          $stored_listening_to = get_post_meta( $post_id, 'listening_to', 'true' );
-          $return = '<div class="mood-music">';
-          if ( ! empty( $stored_moods ) )
-            $return .= '<strong>Current Mood</strong>: ';
-          foreach( $stored_moods as $mood )
-            $return .= $mood . ', ';
-          $return .= '<br/>';
+    // function mood_music( $post_id, $action = 'get', $mood = 0, $listening_to = 0 ) {
+    //   switch ($action) {
+    //     case 'update' :
+    //       if( ! $mood && ! $listening_to )
+    //         //If nothing is given to update, end here
+    //         return false;
+    //       if( $mood ) {
+    //         add_post_meta( $post_id, 'mood', $mood );
+    //         return true;
+    //         }
+    //       if( $listening_to ) {
+    //         add_post_meta( $post_id, 'listening_to', $listening_to, true ) or
+    //           update_post_meta( $post_id, 'listening_to', $listening_to );
+    //         return true;
+    //       }
+    //     case 'delete' :
+    //       delete_post_meta( $post_id, 'mood' );
+    //       delete_post_meta( $post_id, 'listening_to' );
+    //     break;
+    //     case 'get' :
+    //       $stored_moods = get_post_meta( $post_id, 'mood' );
+    //       $stored_listening_to = get_post_meta( $post_id, 'listening_to', 'true' );
+    //       $return = '<div class="mood-music">';
+    //       if ( ! empty( $stored_moods ) )
+    //         $return .= '<strong>Current Mood</strong>: ';
+    //       foreach( $stored_moods as $mood )
+    //         $return .= $mood . ', ';
+    //       $return .= '<br/>';
 
-          if ( ! empty( $stored_listening_to ) ) {
-            $return .= '<strong>Currently Listening To</strong>: ';
-            $return .= $stored_listening_to;
-            }
-          $return .= '</div>';
+    //       if ( ! empty( $stored_listening_to ) ) {
+    //         $return .= '<strong>Currently Listening To</strong>: ';
+    //         $return .= $stored_listening_to;
+    //         }
+    //       $return .= '</div>';
 
-          return $return;
-        default :
-          return false;
-        break;
-      }
-    }
+    //       return $return;
+    //     default :
+    //       return false;
+    //     break;
+    //   }
+    // }
 
 ?>
