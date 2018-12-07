@@ -41,4 +41,18 @@
 
         return $messages;
     }
+    function my_bulk_post_updated_messages_filter( $bulk_messages, $bulk_counts ) {
+
+        $bulk_messages['vacancy'] = array(
+            'locked'    => _n( '%s vacancy not updated, somebody is editing it.', '%s vacancys not updated, somebody is editing them.', $bulk_counts['locked'] ),
+            'deleted'   => _n( '%s vacancy permanently deleted.', '%s vacancys permanently deleted.', $bulk_counts['deleted'] ),
+            'trashed'   => _n( '%s vacancy moved to the Trash.', '%s vacancys moved to the Trash.', $bulk_counts['trashed'] ),
+            'untrashed' => _n( '%s vacancy restored from the Trash.', '%s vacancys restored from the Trash.', $bulk_counts['untrashed'] ),
+        );
+
+        return $bulk_messages;
+
+    }
+
+    add_filter( 'bulk_post_updated_messages', 'my_bulk_post_updated_messages_filter', 10, 2 );
 ?>

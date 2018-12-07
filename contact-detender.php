@@ -34,33 +34,59 @@
                 'capability_type'    => 'post',
                 'has_archive'        => true,
                 'menu_position'      => 5,
-                'supports'           => array( 'title', 'editor', 'thumbnail', 'comments' )
+                'supports'           => array( 'title', 'editor', 'thumbnail' )
             ));
         }
         add_action( 'init', 'create_vacancy_type', 12 );
     }
 
-    function add_vacancy_columns($columns) {
-        return array_merge($columns,
-                  array('publisher' => __('Publisher'),
-                        'book_author' =>__( 'Book Author')));
-    }
-    add_filter('manage_vacancy_posts_columns' , 'add_vacancy_columns');
 
     function set_vacancy_columns($columns) {
         return array(
             'title' => __('Job Title'),
             'date' => __('Created Date'),
-            'publisher' => __('Status'),
+            // 'status' => __('Status'),
+            '_my_meta_value_status_key' => __('Status'),
+            '_my_meta_value_location_key' => __('Location'),
+            '_my_meta_value_key' => __('Expired date'),
         );
     }
     add_filter('manage_vacancy_posts_columns' , 'set_vacancy_columns');
 
+    function add_vacancy_columns( $column ) {
+        $screen = array( 'vacancy' );
+        switch ( $column ) {
+            case '_my_meta_value_status_key' :
+                $metaDatastatus = get_post_meta( get_the_ID($screen) , '_my_meta_value_status_key' , true );
+                echo $metaDatastatus;
+                break;
+            case '_my_meta_value_key' :
+                $metaDataexpired = get_post_meta( get_the_ID($screen) , '_my_meta_value_key' , true );
+                echo $metaDataexpired;
+                break;
+            case '_my_meta_value_location_key' :
+                $metaDataexpired = get_post_meta( get_the_ID($screen) , '_my_meta_value_location_key' , true );
+                echo $metaDataexpired;
+                break;
+        }
+    }
+    add_action('manage_vacancy_posts_custom_column' , 'add_vacancy_columns');
 
+    function my_sortable_vacancy_column( $columns ) {
+        $columns['_my_meta_value_location_key'] = '_my_meta_value_location_key';
+        $columns['_my_meta_value_key'] = '_my_meta_value_key';
+        $columns['_my_meta_value_status_key'] = '_my_meta_value_status_key';
+        return $columns;
+    }
+    add_filter( 'manage_edit-vacancy_sortable_columns', 'my_sortable_vacancy_column' );
 
-    //Implement custom fields without using any plugins
-    include( plugin_dir_path( __FILE__ ) . '/functions/mrfeeders.php');
+    //Implement custom fields without using any plugins add the metabox Expired date for the vacancy post type
+    include( plugin_dir_path( __FILE__ ) . '/functions/metabox-expired-mrfeeders.php');
+    //Implement custom fields without using any plugins add the metabox status for the vacancy post type
+    include( plugin_dir_path( __FILE__ ) . '/functions/metabox-status-mrfeeders.php');
+    //Implement custom fields without using any plugins add the metabox location for the vacancy post type
+    include( plugin_dir_path( __FILE__ ) . '/functions/metabox-location-mrfeeders.php');
     //change message default to use vacancy
-    include( plugin_dir_path( __FILE__ ) . '/functions/mrfeeder.php');
+    include( plugin_dir_path( __FILE__ ) . '/functions/message-mrfeeder.php');
 
 ?>
