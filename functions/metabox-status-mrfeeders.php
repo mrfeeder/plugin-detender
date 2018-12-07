@@ -21,11 +21,21 @@
      */
     function vacancy_meta_box_status_callback( $post ) {
         wp_nonce_field( 'vacancy_save_meta_box_status_data', 'vacancy_status_meta_box_nonce' );
-        $value = get_post_meta( $post->ID, '_my_meta_value_status_key', true );
+        $value_saved = get_post_meta( $post->ID, '_my_meta_value_status_key', true );
+        $values_status = array(
+            'open' => 'Open',
+            'expired' => 'Expired',
+        );
         echo '<label for="vacancy_new_field_status">';
         _e( 'Status', 'vacancy' );
         echo '</label> ';
-        echo '<input type="text" id="vacancy_new_field_status" name="vacancy_new_field_status" value="' . esc_attr( $value ) . '" size="25" />';
+        echo '</label> ';
+        echo '<select id="vacancy_new_field_status" name="vacancy_new_field_status">';
+        foreach ($values_status as $key => $value) {
+            $selected = $key == $value_saved ? 'selected="selected"' : '';
+            echo '<option value="'.$key.'" '.$selected.'>'.$value.'</option>';
+        }
+        echo '</select>';
     }
 
     function vacancy_save_meta_box_status_data( $post_id ) {

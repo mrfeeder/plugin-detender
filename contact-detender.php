@@ -44,10 +44,10 @@
     function set_vacancy_columns($columns) {
         return array(
             'title' => __('Job Title'),
-            'date' => __('Created Date'),
             // 'status' => __('Status'),
             '_my_meta_value_status_key' => __('Status'),
             '_my_meta_value_location_key' => __('Location'),
+            'date' => __('Created Date'),
             '_my_meta_value_key' => __('Expired date'),
         );
     }

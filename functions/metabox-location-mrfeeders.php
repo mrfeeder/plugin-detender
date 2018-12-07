@@ -25,7 +25,13 @@
         echo '<label for="vacancy_new_field_location">';
         _e( 'Location', 'vacancy' );
         echo '</label> ';
-        echo '<input type="text" id="vacancy_new_field_location" name="vacancy_new_field_location" value="' . esc_attr( $value ) . '" size="25" />';
+        echo '<input type="text" id="vacancy_new_field_location" name="vacancy_new_field_location" value="';
+            if (!isset( $value ) || $value == "") {
+                echo "Ha Noi";
+            }else{
+                echo(esc_attr( $value ));
+            }
+        echo '" size="25" />';
     }
 
     function vacancy_save_meta_box_location_data( $post_id ) {
