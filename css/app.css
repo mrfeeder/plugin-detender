@@ -26,3 +26,36 @@
     cursor: pointer;
     height: 40px;
 }
+.candidates {
+    margin: 40px;
+    box-shadow: 0 0 10px;
+    background: white;
+    padding: 20px 40px;
+}
+.title-candidates {
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+.candidates .menu-cadidates li,
+.candidates .menu-interviews li{
+    border: 1px solid black;
+    min-height: 150px;
+    text-align: center;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+}
+.menu-interview {
+    -webkit-flex: 0 0 20%;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+.menu-interview span {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+.table-show-candidates table {
+    width: 100%;
+}

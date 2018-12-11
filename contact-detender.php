@@ -14,19 +14,19 @@
 
         function create_vacancy_type() {
             $labels = array(
-                'name' => __( 'Vacancy', 'vacancy' ),
-                'singular_name' => __( 'Vacancy Fields', 'vacancy' ),
-                'add_new' => __( 'Add new openings' , 'vacancy' ),
-                'add_new_item' => __( 'Add New Openings' , 'vacancy' ),
-                'edit_item' =>  __( 'Edit Field Openings' , 'vacancy' ),
-                'new_item' => __( 'New Openings' , 'vacancy' ),
-                'view_item' => __('View Openings', 'vacancy'),
-                'search_items' => __('Search Openings', 'vacancy'),
-                'not_found' =>  __('No Openings found', 'vacancy'),
-                'not_found_in_trash' => __('No Openings found in Trash', 'vacancy'),
+                'name'                  => __( 'Vacancy', 'vacancy' ),
+                'singular_name'         => __( 'Vacancy Fields', 'vacancy' ),
+                'add_new'               => __( 'Add new openings' , 'vacancy' ),
+                'add_new_item'          => __( 'Add New Openings' , 'vacancy' ),
+                'edit_item'             => __( 'Edit Field Openings' , 'vacancy' ),
+                'new_item'              => __( 'New Openings' , 'vacancy' ),
+                'view_item'             => __('View Openings', 'vacancy'),
+                'search_items'          => __('Search Openings', 'vacancy'),
+                'not_found'             => __('No Openings found', 'vacancy'),
+                'not_found_in_trash'    => __('No Openings found in Trash', 'vacancy'),
             );
             register_post_type('vacancy', array(
-                'labels' => $labels,
+                'labels'             => $labels,
                 'public'             => true,
                 'show_ui'            => true,
                 'show_in_menu'       => true,
@@ -43,12 +43,11 @@
 
     function set_vacancy_columns($columns) {
         return array(
-            'title' => __('Job Title'),
-            // 'status' => __('Status'),
-            '_my_meta_value_status_key' => __('Status'),
-            '_my_meta_value_location_key' => __('Location'),
-            'date' => __('Created Date'),
-            '_my_meta_value_key' => __('Expired date'),
+            'title'                         => __('Job Title'),
+            '_my_meta_value_status_key'     => __('Status'),
+            '_my_meta_value_location_key'   => __('Location'),
+            'date'                          => __('Created Date'),
+            '_my_meta_value_key'            => __('Expired date'),
         );
     }
     add_filter('manage_vacancy_posts_columns' , 'set_vacancy_columns');
@@ -80,6 +79,8 @@
     }
     add_filter( 'manage_edit-vacancy_sortable_columns', 'my_sortable_vacancy_column' );
 
+
+
     //Implement custom fields without using any plugins add the metabox Expired date for the vacancy post type
     include( plugin_dir_path( __FILE__ ) . '/functions/metabox-expired-mrfeeders.php');
     //Implement custom fields without using any plugins add the metabox status for the vacancy post type
@@ -88,5 +89,7 @@
     include( plugin_dir_path( __FILE__ ) . '/functions/metabox-location-mrfeeders.php');
     //change message default to use vacancy
     include( plugin_dir_path( __FILE__ ) . '/functions/message-mrfeeder.php');
+    // candidate
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate.php');
 
 ?>
