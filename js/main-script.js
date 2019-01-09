@@ -18,6 +18,9 @@
             revert : 'valid',
             cancel:true
         });
+        $("#collapseExample .close").click(function() {
+            $( ".set-new .btn-primary" ).trigger( "click" );
+        });
         $(".area-for-drop").droppable({
             hoverClass : 'ui-state-highlight',
             accept: ":not(.ui-sortable-helper)",

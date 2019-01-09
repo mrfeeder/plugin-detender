@@ -31,11 +31,15 @@
     box-shadow: 0 0 10px;
     background: white;
     padding: 20px 40px;
+    height: 100vw;
 }
 .title-candidates {
     font-weight: 700;
     margin-bottom: 40px;
 }
+/*.candidates .tab-content>.tab-pane {
+    height: 100vw;
+}*/
 .candidates .menu-cadidates li,
 .candidates .menu-interviews li{
     border: 1px solid black;
@@ -142,7 +146,38 @@
     left: 5px;
     margin-bottom: 0;
 }
-
+#collapseExample {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    height: 80%;
+}
+#collapseExample .close {
+    position: absolute;
+    top: -4px;
+    right: -1px;
+    font-size: 25px;
+    line-height: 100%;
+}
+#collapseExample .card {
+    padding: 10px;
+}
+#collapseExample .card select {
+    padding: 5px 15px;
+}
+#collapseExample .card form > button {
+    padding: 5px 15px;
+}
+#collapseExample .card form > div {
+    margin-bottom: 20px;
+}
+#collapseExample .card input[type=text] {
+    width: 100%;
+}
 /*modify col-20%*/
 .col-xs-5th-1, .col-xs-5th-2, .col-xs-5th-3, .col-xs-5th-4 {
     float: left;

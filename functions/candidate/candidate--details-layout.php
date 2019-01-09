@@ -238,6 +238,7 @@
                         <div class="tab-pane active" id="resume"><iframe src="<?php echo (get_field('cv',$postid)["url"]) ?: get_field('cv',$postid)["url"] ?>" width="100%" style="height:100%"></iframe></div>
                         <div class="tab-pane" id="testdetails">waiting</div>
                         <div class="tab-pane" id="rating-comments">
+                            <?php if (have_comments()) : ?>
                                 <h2>
                                     Rating & Comments
                                 </h2>
@@ -307,34 +308,54 @@
                                         ?>
                                     </div>
                                 </div>
+                            <?php else: ?>
+                                In there no have any comments.
+                            <?php endif; ?>
                         </div>
                         <div class="tab-pane" id="interview">
-                            <?php
-                                if (isset($postmeta)) {
+                            <div class="row">
+                                <?php if (isset($postmeta)) {
                                     for ($k=0; $k < $countsubmit; $k++) {
                                         $post_typeInterview = 'post_typeInterview'.$k;
                                         $post_Duration = 'post_Duration'.$k;
                                         $post_interviewrs = 'post_interviewrs'.$k;
                                         $post_interviewDetails = 'post_interviewDetails'.$k;
                                         $post_InterviewDate = 'post_InterviewDate'.$k;
-                                        if (isset($postmeta[$post_typeInterview][0])) {
-                                            echo $postmeta[$post_typeInterview][0];
-                                        }
-                                        if (isset($postmeta[$post_Duration][0])) {
-                                            echo $postmeta[$post_Duration][0];
-                                        }
-                                        if (isset($postmeta[$post_interviewrs][0])) {
-                                            echo $postmeta[$post_interviewrs][0];
-                                        }
-                                        if (isset($postmeta[$post_interviewDetails][0])) {
-                                            echo $postmeta[$post_interviewDetails][0];
-                                        }
-                                        if (isset($postmeta[$post_InterviewDate][0])) {
-                                            echo $postmeta[$post_InterviewDate][0];
-                                        }
+                                        ?>
+                                        <div class="list-interviews col-sm-4">
+                                            <?php if (isset($postmeta[$post_typeInterview][0])) : ?>
+                                                <p>type of interview <span>
+                                                <?= $postmeta[$post_typeInterview][0]; ?>
+                                                </span></p>
+                                            <?php endif; ?>
+                                            <?php if (isset($postmeta[$post_interviewDetails][0])) : ?>
+                                                <p>Interview Details: <span>
+                                                <?= $postmeta[$post_interviewDetails][0]; ?>
+                                                </span></p>
+                                            <?php endif; ?>
+                                            <?php if (isset($postmeta[$post_interviewrs][0])) : ?>
+                                                <p>Interviewer: <span>
+                                                <?= $postmeta[$post_interviewrs][0]; ?>
+                                                </span></p>
+                                            <?php endif; ?>
+                                            <?php if (isset($postmeta[$post_Duration][0])) : ?>
+                                                <p>Duration: <span>
+                                                <?= $postmeta[$post_Duration][0]; ?>
+                                                </span></p>
+                                            <?php endif; ?>
+                                            <?php if (isset($postmeta[$post_InterviewDate][0])) : ?>
+                                                <p>Interview Time: <span>
+                                                <?= $postmeta[$post_InterviewDate][0]; ?>
+                                                </span></p>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php
                                     }
                                 }
-                            ?>
+                                if (!isset($postmeta['post_countsubmit']) || $postmeta['post_countsubmit'] == 0 ) : ?>
+                                    There no have any Interview set
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div class="tab-pane" id="todo">Settings Tab.</div>
                     </div>
@@ -344,6 +365,7 @@
     </div>
 
     <div class="collapse" id="collapseExample">
+        <div class="close">X</div>
         <div class="card card-body">
             <h3>Creat a new interview</h3>
             <form action="<?php the_permalink(); ?>" id="interviewForm" name="interviewForm" method="post">
