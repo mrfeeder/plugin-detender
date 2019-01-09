@@ -1,6 +1,7 @@
 (function($){
     $(document)
     .ready(function(){
+        $( "#datepicker" ).datepicker();
         var count = 1;
         // $(".area-for-drop").sortable();
         // $(".area-for-drop").disableSelection();

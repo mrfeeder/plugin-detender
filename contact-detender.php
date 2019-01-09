@@ -10,36 +10,32 @@
     */
 ?>
 <?php
-    if (!function_exists('create_vacancy_type')){
+    //Initialization vacancy
+    include( plugin_dir_path( __FILE__ ) . '/functions/vacancy/init-vacancy.php');
+    //Initialization candidate
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/init-candidate.php');
+    //Implement custom fields without using any plugins add the metabox Expired date for the vacancy post type
+    include( plugin_dir_path( __FILE__ ) . '/functions/vacancy/metabox-expired-mrfeeders.php');
+    //Implement custom fields without using any plugins add the metabox status for the vacancy post type
+    include( plugin_dir_path( __FILE__ ) . '/functions/vacancy/metabox-status-mrfeeders.php');
+    //Implement custom fields without using any plugins add the metabox location for the vacancy post type
+    include( plugin_dir_path( __FILE__ ) . '/functions/vacancy/metabox-location-mrfeeders.php');
+    //Change Message Default to Use Vacancy
+    include( plugin_dir_path( __FILE__ ) . '/functions/vacancy/message-mrfeeder.php');
+    //Candidate
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/statistical-candidate.php');
+    //Change Message Default to Use Candidate
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/message-candidate-mrfeeder.php');
+    //////////////warning: Required ACF Plugin
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/insert-candidate.php');
+    //Candidate Details
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate-details.php');
+    // Add more rating to comment form default
+    include( plugin_dir_path( __FILE__ ) . '/functions/custom-addmore-rating-comment.php');
 
-        function create_vacancy_type() {
-            $labels = array(
-                'name'                  => __( 'Vacancy', 'vacancy' ),
-                'singular_name'         => __( 'Vacancy Fields', 'vacancy' ),
-                'add_new'               => __( 'Add new openings' , 'vacancy' ),
-                'add_new_item'          => __( 'Add New Openings' , 'vacancy' ),
-                'edit_item'             => __( 'Edit Field Openings' , 'vacancy' ),
-                'new_item'              => __( 'New Openings' , 'vacancy' ),
-                'view_item'             => __('View Openings', 'vacancy'),
-                'search_items'          => __('Search Openings', 'vacancy'),
-                'not_found'             => __('No Openings found', 'vacancy'),
-                'not_found_in_trash'    => __('No Openings found in Trash', 'vacancy'),
-            );
-            register_post_type('vacancy', array(
-                'labels'             => $labels,
-                'public'             => true,
-                'show_ui'            => true,
-                'show_in_menu'       => true,
-                'rewrite'            => array( 'slug' => 'vacancy' ),
-                'capability_type'    => 'post',
-                'has_archive'        => true,
-                'menu_position'      => 5,
-                'supports'           => array( 'title', 'editor', 'thumbnail' )
-            ));
-        }
-        add_action( 'init', 'create_vacancy_type', 12 );
-    }
 
+    //other path ver 2
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/create-table.php');
 
     function set_vacancy_columns($columns) {
         return array(
@@ -80,16 +76,25 @@
     add_filter( 'manage_edit-vacancy_sortable_columns', 'my_sortable_vacancy_column' );
 
 
+    //add feature image
+    function ja_theme_setup() {
+        add_theme_support( 'post-thumbnails', array( 'candidate' ) );
+        add_theme_support( 'html5', array( 'comment-form' ) );
+    }
+    add_action( 'after_setup_theme', 'ja_theme_setup' );
 
-    //Implement custom fields without using any plugins add the metabox Expired date for the vacancy post type
-    include( plugin_dir_path( __FILE__ ) . '/functions/metabox-expired-mrfeeders.php');
-    //Implement custom fields without using any plugins add the metabox status for the vacancy post type
-    include( plugin_dir_path( __FILE__ ) . '/functions/metabox-status-mrfeeders.php');
-    //Implement custom fields without using any plugins add the metabox location for the vacancy post type
-    include( plugin_dir_path( __FILE__ ) . '/functions/metabox-location-mrfeeders.php');
-    //change message default to use vacancy
-    include( plugin_dir_path( __FILE__ ) . '/functions/message-mrfeeder.php');
-    // candidate
-    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate.php');
+
+    function my_plugin_templates( $template ) {
+        $post_types = array('candidate');
+        $current_user = wp_get_current_user();
+        if (user_can( $current_user, 'administrator' )) {
+            if (is_singular($post_types)) {
+                $template = plugin_dir_path( __FILE__ ) . 'functions/candidate/candidate--details-layout.php';
+            }
+            return $template;
+        }
+    }
+    add_filter('template_include', 'my_plugin_templates');
+
 
 ?>
