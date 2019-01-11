@@ -18,7 +18,7 @@
      * Display callback for the submenu page.
      */
     function candidate_details_ref_page_callback() {
-        include( plugin_dir_path( __FILE__ ) . '/candidate--details-header.php');
-        include( plugin_dir_path( __FILE__ ) . '/candidate--details-layout.php');
+        include( plugin_dir_path( __FILE__ ) . '/layout/header-candidate--details.php');
+        include( plugin_dir_path( __FILE__ ) . '/layout/candidate--details-layout.php');
     }
 ?>

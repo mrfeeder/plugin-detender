@@ -32,10 +32,10 @@
     include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate-details.php');
     // Add more rating to comment form default
     include( plugin_dir_path( __FILE__ ) . '/functions/custom-addmore-rating-comment.php');
-
-
+    // Candidate test details Define for Filling by hand is not automatic
+    // include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate-test-details.php');
     //other path ver 2
-    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/create-table.php');
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/ver2/create-table.php');
 
     function set_vacancy_columns($columns) {
         return array(
@@ -75,7 +75,6 @@
     }
     add_filter( 'manage_edit-vacancy_sortable_columns', 'my_sortable_vacancy_column' );
 
-
     //add feature image
     function ja_theme_setup() {
         add_theme_support( 'post-thumbnails', array( 'candidate' ) );
@@ -83,18 +82,15 @@
     }
     add_action( 'after_setup_theme', 'ja_theme_setup' );
 
-
     function my_plugin_templates( $template ) {
         $post_types = array('candidate');
         $current_user = wp_get_current_user();
         if (user_can( $current_user, 'administrator' )) {
             if (is_singular($post_types)) {
-                $template = plugin_dir_path( __FILE__ ) . 'functions/candidate/candidate--details-layout.php';
+                $template = plugin_dir_path( __FILE__ ) . 'functions/candidate/layout/candidate--details-layout.php';
             }
             return $template;
         }
     }
     add_filter('template_include', 'my_plugin_templates');
-
-
 ?>

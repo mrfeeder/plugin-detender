@@ -30,6 +30,6 @@
      * Display callback for the submenu page.
      */
     function candidate_ref_page_callback() {
-        include( plugin_dir_path( __FILE__ ) . '/candidate-layout.php');
+        include( plugin_dir_path( __FILE__ ) . '/layout/candidate-layout.php');
     }
 ?>

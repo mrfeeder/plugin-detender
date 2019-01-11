@@ -2,6 +2,7 @@
     $(document)
     .ready(function(){
         $( "#datepicker" ).datepicker();
+        $(".remove-template").remove();
         var count = 1;
         // $(".area-for-drop").sortable();
         // $(".area-for-drop").disableSelection();
