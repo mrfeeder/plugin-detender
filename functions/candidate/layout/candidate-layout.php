@@ -44,7 +44,7 @@
             <div class="menu-cadidates col-md-2">
                 <ul class="d-flex flex-column">
                     <li class="d-flex">
-                        overview
+                        Overview
                     </li>
                     <li class="d-flex">
                         Shorted-List
@@ -97,12 +97,12 @@
                     <div class="table">
                         <table>
                             <thead>
-                                <th>date</th>
-                                <th>name</th>
-                                <th>rating</th>
-                                <th>applied position</th>
-                                <th>stage</th>
-                                <th>action</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Rating</th>
+                                <th>Applied Position</th>
+                                <th>Stage</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
                                 <?php if( $posts ): foreach ( $posts as $post): $postid = $post->ID; ?>

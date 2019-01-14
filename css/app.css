@@ -28,7 +28,7 @@
 }
 .candidates {
     margin: 40px;
-    box-shadow: 0 0 10px;
+    box-shadow: 0 0 14px rgba(149, 149, 149, 0.2);
     background: white;
     padding: 20px 40px;
     min-height: 50vw;
@@ -86,9 +86,6 @@ div#collapseExample:before {
     width: 100%;
 }
 
-#acf_acf_candidate.acf_postbox p.label {
-    display: none;
-}
 #acf_acf_candidate .inside > div {
     float: left;
     width: 100%
@@ -132,7 +129,7 @@ div#collapseExample:before {
 .col-lg-5th-1 {
     border: 1px solid #ccc;
     border-radius: 15px;
-    padding: 5px 5px 30px 5px;
+    padding: 5px 5px 50px 5px;
     position: relative;
     margin-bottom: 20px;
 }
@@ -170,26 +167,33 @@ div#collapseExample:before {
 }
 #collapseExample {
     position: fixed;
-    top: 20%;
+    top: 10%;
     padding-top: 20px;
     left: 10%;
     background: white;
     width: 80%;
-    height: 80%;
+    min-height: 80%;
 }
 .candidate-contents {
     padding-top: 40px;
 }
+.candidate-contents .nav li {
+    border: solid #5e358c;
+    border-width: 1px;
+    margin-bottom: 10px;
+}
 .candidate-contents .nav a {
-    color: #28203f;
+    color: #5e358c;
     letter-spacing: -0.2px;
     display: inline-block;
     width: 100%;
     line-height: 200%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .candidate-contents .nav a:hover {
-    color: #623b90;
-    background: #ccc;
+    color: white;
+    background: #5e358c;
     text-decoration: none;
 }
 .social-facebook,
@@ -206,19 +210,16 @@ div#collapseExample:before {
 }
 .hire-button {
     margin-left: 10px;
-    color: #28203f;
-    background: rgba(255,255,255,1);
-    border: none;
-    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(173,193,229,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(173,193,229,1)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(173,193,229,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(173,193,229,1) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(173,193,229,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(173,193,229,1) 100%);
+    color: #5e358c;
+    background: white;
+    border: 1px solid #5e358c;
+    box-shadow: 5px 6px 12px rgba(149, 149, 149, 0.2);
 }
 .hire-button:hover {
-    color: #623b90;
+    color: white;
     text-decoration: none;
+    background: #5e358c;
+    border-color: white;
 }
 
 .set-new .btn-primary {
@@ -226,6 +227,12 @@ div#collapseExample:before {
     color: white;
     box-shadow: 5px 6px 12px rgba(149, 149, 149, 0.2);
     border: none;
+}
+
+.set-new .btn-primary:hover {
+    background-color: white;
+    color: #5e358c;
+    border: 1px solid #5e358c;
 }
 
 button {
@@ -254,12 +261,37 @@ button {
 }
 #collapseExample .card form > button {
     padding: 5px 15px;
+    float: left;
 }
 #collapseExample .card form > div {
     margin-bottom: 20px;
+    float: left;
+    width: 100%;
 }
+#collapseExample .card textarea,
 #collapseExample .card input[type=text] {
     width: 100%;
+}
+
+#collapseExample .card form .interviewrsduration,
+#collapseExample .card form .interviewrstime {
+    width: 50%;
+    float: left;
+}
+.interviewrsduration label {
+    margin-right: 5px;
+}
+#collapseExample .card .interviewrstime input {
+    width: calc(100% - 160px);
+    float: right;
+}
+.candidate-area .col-sm-12 {
+    margin-bottom: 20px;
+}
+.candidate-area .col-sm-12 textarea,
+.candidate-area .col-sm-12 input {
+    width: calc(100% - 200px);
+    float: right;
 }
 /*modify col-20%*/
 .col-xs-5th-1, .col-xs-5th-2, .col-xs-5th-3, .col-xs-5th-4 {
@@ -282,6 +314,13 @@ button {
     width: 20%;
 }
 
+@media (max-width: 768px) {
+    .candidate-area .col-sm-12 textarea,
+    .candidate-area .col-sm-12 input {
+        width: 100%;
+        float: right;
+    }
+}
 @media (min-width: 768px) {
     .col-sm-5th-1, .col-sm-5th-2, .col-sm-5th-3, .col-sm-5th-4 {
         float: left;

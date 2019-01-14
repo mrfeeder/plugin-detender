@@ -6,6 +6,7 @@
             $post_interviewrs = 'post_interviewrs'.$k;
             $post_interviewDetails = 'post_interviewDetails'.$k;
             $post_InterviewDate = 'post_InterviewDate'.$k;
+            $post_Interviewtime = 'post_Interviewtime'.$k;
             ?>
             <div class="list-interviews col-sm-4">
                 <?php if (isset($postmeta[$post_typeInterview][0])) : ?>
@@ -29,8 +30,13 @@
                     </span></p>
                 <?php endif; ?>
                 <?php if (isset($postmeta[$post_InterviewDate][0])) : ?>
-                    <p>Interview Time: <span>
+                    <p>Interview Date: <span>
                     <?= $postmeta[$post_InterviewDate][0]; ?>
+                    </span></p>
+                <?php endif; ?>
+                <?php if (isset($postmeta[$post_Interviewtime][0])) : ?>
+                    <p>Interview Time: <span>
+                    <?= $postmeta[$post_Interviewtime][0]; ?>
                     </span></p>
                 <?php endif; ?>
             </div>

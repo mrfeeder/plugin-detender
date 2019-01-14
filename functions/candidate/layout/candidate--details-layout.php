@@ -9,9 +9,17 @@
     }else {
         $countsubmit = 0;
     }
+
+    if (isset($postmeta['post_counttodosubmit'])) {
+        $counttodosubmit = (int)$postmeta['post_counttodosubmit'][0];
+    }else {
+        $counttodosubmit = 0;
+    }
+
     // handle save form of template
     include( plugin_dir_path( __FILE__ ) . '/handle-candidate-save-form.php');
     // handle save form of template
+
 ?>
     <div class="candidates candidate-details">
         <h1>
@@ -42,7 +50,9 @@
                         <div class="tab-pane" id="interview">
                             <?php include( plugin_dir_path( __FILE__ ) . '/candidate-interview-tab.php'); ?>
                         </div>
-                        <div class="tab-pane" id="todo">Settings Tab.</div>
+                        <div class="tab-pane" id="todo">
+                            <?php include( plugin_dir_path( __FILE__ ) . '/candidate-todo-tab.php'); ?>
+                        </div>
                     </div>
                 </div>
             </div>

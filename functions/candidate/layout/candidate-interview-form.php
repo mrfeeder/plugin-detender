@@ -13,14 +13,10 @@
             </select>
         </div>
         <div>
-            <label for="interviewDetails">Interview Details (e.g vanue, phone etc)</label>
-            <input type="text" name="interviewDetails" />
-        </div>
-        <div>
             <label for="interviewrs">Interviewers:</label>
             <input type="text" name="interviewrs" />
         </div>
-        <div>
+        <div class="interviewrsduration">
             <label for="Duration">Duration:</label>
             <select name="Duration" id="duration">
                 <option value="30m">30 minutes</option>
@@ -30,9 +26,17 @@
                 <option value="4hours">4 hours</option>
             </select>
         </div>
+        <div class="interviewrstime">
+            <label for="Interviewtime">Interview Time :</label>
+            <input type="text" id="Interviewtime" name="Interviewtime">
+        </div>
         <div>
             <label for="InterviewDate">Interview Date :</label>
             <input type="text" id="datepicker" name="InterviewDate">
+        </div>
+        <div>
+            <label for="interviewDetails">Interview Details (e.g vanue, phone etc)</label>
+            <textarea name="interviewDetails" id="interviewDetails" cols="30" rows="5"></textarea>
         </div>
         <button type="submit">Save</button>
         <input type="hidden" name="submitted" id="submitted" value="true" />
