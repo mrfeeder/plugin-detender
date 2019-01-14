@@ -27,13 +27,13 @@
     //Change Message Default to Use Candidate
     include( plugin_dir_path( __FILE__ ) . '/functions/candidate/message-candidate-mrfeeder.php');
     //////////////warning: Required ACF Plugin
-    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/insert-candidate.php');
+    // include( plugin_dir_path( __FILE__ ) . '/functions/candidate/insert-candidate.php');
     //Candidate Details
     include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate-details.php');
     // Add more rating to comment form default
     include( plugin_dir_path( __FILE__ ) . '/functions/custom-addmore-rating-comment.php');
     // Candidate test details Define for Filling by hand is not automatic
-    // include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate-test-details.php');
+    include( plugin_dir_path( __FILE__ ) . '/functions/candidate/candidate-test-details.php');
     //other path ver 2
     include( plugin_dir_path( __FILE__ ) . '/functions/candidate/ver2/create-table.php');
 

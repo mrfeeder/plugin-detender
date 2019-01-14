@@ -4,10 +4,12 @@
         wp_register_style( 'app', plugins_url('/../../css/app.css', __FILE__ ));
         wp_register_script( 'tether', 'https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js');
         wp_register_script( 'bootstrapjs', plugins_url('/../../js/bootstrap.min.js', __FILE__ ));
+        wp_register_script( 'mainjs', plugins_url('/../../js/main-script.js', __FILE__ ));
         wp_enqueue_style( 'bootstrap' );
         wp_enqueue_style( 'app' );
         wp_enqueue_script( 'tether' );
         wp_enqueue_script( 'bootstrapjs' );
+        wp_enqueue_script( 'mainjs' );
     }
     add_action('admin_init', 'load_styles__plugin_scripts');
 

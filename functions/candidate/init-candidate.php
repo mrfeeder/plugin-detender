@@ -22,7 +22,7 @@
                 'capability_type'    => 'post',
                 'has_archive'        => true,
                 'menu_position'      => 5,
-                'supports'           => array( 'title', 'editor', 'thumbnail', 'comments' )
+                'supports'           => array( 'title', 'thumbnail', 'comments' )
             ));
         }
         add_action( 'init', 'create_candidate_type', 12 );

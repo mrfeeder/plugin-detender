@@ -6,7 +6,7 @@
             'fields' => array (
                 array (
                     'key' => 'field_5c22fd113e5b8',
-                    'label' => '',
+                    'label' => 'Name Candidate',
                     'name' => 'candidate_name',
                     'type' => 'text',
                     'required' => 0,
@@ -19,7 +19,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fd3d3e5b9',
-                    'label' => '',
+                    'label' => 'Location Candidate',
                     'name' => 'location',
                     'type' => 'text',
                     'required' => 0,
@@ -32,7 +32,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fd6d3e5ba',
-                    'label' => '',
+                    'label' => 'Experience Candidate',
                     'name' => 'experience',
                     'type' => 'number',
                     'required' => 0,
@@ -46,6 +46,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fd823e5bb',
+                    'label' => 'Desired Salary Of Candidate',
                     'name' => 'desired_salary',
                     'type' => 'number',
                     'required' => 0,
@@ -59,6 +60,7 @@
                 ),
                 array (
                     'key' => 'field_5c23ad823e5bb',
+                    'label' => 'Applied Position Of Candidate',
                     'name' => 'applied_position',
                     'type' => 'text',
                     'required' => 0,
@@ -71,7 +73,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fdbc3e5bc',
-                    'label' => '',
+                    'label' => 'Stage',
                     'name' => 'stage',
                     'type' => 'select',
                     'choices' => array (
@@ -86,7 +88,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fdcb3e5bd',
-                    'label' => '',
+                    'label' => 'Phone of Candidate',
                     'name' => 'tel',
                     'type' => 'text',
                     'required' => 0,
@@ -99,7 +101,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fde53e5be',
-                    'label' => '',
+                    'label' => 'Email Candidate',
                     'name' => 'email',
                     'type' => 'email',
                     'required' => 0,
@@ -110,7 +112,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fdf43e5bf',
-                    'label' => '',
+                    'label' => 'Facebook link Candidate',
                     'name' => 'social_link',
                     'type' => 'text',
                     'required' => 0,
@@ -123,7 +125,7 @@
                 ),
                 array (
                     'key' => 'field_5c24sqf43e5bf',
-                    'label' => '',
+                    'label' => 'Linkendin link Candidate',
                     'name' => 'social_link_linkendin',
                     'type' => 'text',
                     'required' => 0,
@@ -136,7 +138,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fe1a3e5c0',
-                    'label' => 'cv',
+                    'label' => 'CV pdf',
                     'name' => 'cv',
                     'type' => 'file',
                     'required' => 0,
@@ -145,7 +147,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fe513e5c1',
-                    'label' => '',
+                    'label' => 'total Rating Candidate',
                     'name' => 'rating',
                     'type' => 'number',
                     'required' => 0,
@@ -159,7 +161,7 @@
                 ),
                 array (
                     'key' => 'field_5c22fe613e5c2',
-                    'label' => '',
+                    'label' => 'Comment',
                     'name' => 'commentbyauthor',
                     'type' => 'textarea',
                     'required' => 0,
