@@ -1,5 +1,18 @@
 <?php
     if(function_exists("register_field_group")) {
+        $arraytitlevacancy = array();
+        $arraykeytitlevacancy = array();
+        $the_loop = null;
+        $args = array   (
+                            'post_type'        => 'vacancy',
+                            'post_status'      => 'publish',
+                        );
+        $the_loop = get_posts($args);
+        foreach ($the_loop as $key => $value) {
+            array_push($arraytitlevacancy,$value->post_title);
+            array_push($arraykeytitlevacancy,$value->post_title);
+        }
+        $array_combined = array_combine($arraykeytitlevacancy,$arraytitlevacancy);
         register_field_group(array (
             'id' => 'acf_candidate',
             'title' => 'Candidate',
@@ -62,14 +75,11 @@
                     'key' => 'field_5c23ad823e5bb',
                     'label' => 'Applied Position Of Candidate',
                     'name' => 'applied_position',
-                    'type' => 'text',
-                    'required' => 0,
+                    'type' => 'select',
+                    'choices' => $array_combined,
                     'default_value' => '',
-                    'placeholder' => 'Applied Position',
-                    'prepend' => '',
-                    'append' => '',
-                    'formatting' => 'html',
-                    'maxlength' => '',
+                    'allow_null' => 0,
+                    'multiple' => 0,
                 ),
                 array (
                     'key' => 'field_5c22fdbc3e5bc',

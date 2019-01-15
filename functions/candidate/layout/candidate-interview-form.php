@@ -12,6 +12,17 @@
                 <option value="makeoffer">Make An Offer</option>
             </select>
         </div>
+        <div class="test-list">
+            <?php $testlistargs = array( 'post_type' => 'task' ); $listposts = get_posts($testlistargs); ?>
+            <label for="listposts">Select Test</label>
+            <select name="listposts" id="listposts">
+                <option selected="selected" value="itempty"></option>
+                <?php foreach ($listposts as $listpost) : ?>
+                    <option value="<?php echo $listpost->post_title ?>"><?php echo $listpost->post_title ?></option>
+                <?php endforeach; ?>
+            </select>
+            </pre>
+        </div>
         <div>
             <label for="interviewrs">Interviewers:</label>
             <input type="text" name="interviewrs" />

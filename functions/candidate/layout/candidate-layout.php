@@ -96,26 +96,29 @@
                     </div>
                     <div class="table">
                         <table>
-                            <thead>
-                                <th>Date</th>
-                                <th>Name</th>
-                                <th>Rating</th>
-                                <th>Applied Position</th>
-                                <th>Stage</th>
-                                <th>Action</th>
-                            </thead>
-                            <tbody>
-                                <?php if( $posts ): foreach ( $posts as $post): $postid = $post->ID; ?>
-                                <tr>
-                                    <td><?= $post->post_modified; ?></td>
-                                    <td><?= get_field('candidate_name',$postid); ?></td>
-                                    <td><?= get_field('rating',$postid); ?></td>
-                                    <td><?= get_field('applied_position',$postid); ?></td>
-                                    <td><?= get_field('stage',$postid); ?></td>
-                                    <td><a href="<?= get_permalink($postid) ?>">view</a></td>
-                                </tr>
-                                <?php endforeach; endif; ?>
-                            </tbody>
+                            <tr>
+                                <th id="date">Date</th>
+                                <th id="name">Name</th>
+                                <th id="rating">Rating</th>
+                                <th id="applied_position">Applied Position</th>
+                                <th id="stage">Stage</th>
+                                <th id="action">Action</th>
+                            </tr>
+                            <?php if( $posts ): foreach ( $posts as $post): $postid = $post->ID; ?>
+                            <tr>
+                                <td><?php
+                                    $date = $post->post_modified;
+                                    $createDate = new DateTime($date);
+                                    $strip = $createDate->format('d-m-Y');
+                                    echo $strip; // string(10) "2012-09-09"
+                                ?></td>
+                                <td><?= get_field('candidate_name',$postid); ?></td>
+                                <td><?= get_field('rating',$postid); ?></td>
+                                <td><?= get_field('applied_position',$postid); ?></td>
+                                <td><?= get_field('stage',$postid); ?></td>
+                                <td><a href="<?= get_permalink($postid) ?>">view</a></td>
+                            </tr>
+                            <?php endforeach; endif; ?>
                         </table>
                     </div>
                 </div>

@@ -4,6 +4,7 @@
             $post_typeInterview = 'post_typeInterview'.$k;
             $post_Duration = 'post_Duration'.$k;
             $post_interviewrs = 'post_interviewrs'.$k;
+            $post_listposts = 'post_listposts'.$k;
             $post_interviewDetails = 'post_interviewDetails'.$k;
             $post_InterviewDate = 'post_InterviewDate'.$k;
             $post_Interviewtime = 'post_Interviewtime'.$k;
@@ -22,6 +23,11 @@
                 <?php if (isset($postmeta[$post_interviewrs][0])) : ?>
                     <p>Interviewer: <span>
                     <?= $postmeta[$post_interviewrs][0]; ?>
+                    </span></p>
+                <?php endif; ?>
+                <?php if (isset($postmeta[$post_listposts][0])) : ?>
+                    <p>Test: <span>
+                    <?= $postmeta[$post_listposts][0]; ?>
                     </span></p>
                 <?php endif; ?>
                 <?php if (isset($postmeta[$post_Duration][0])) : ?>

@@ -293,6 +293,9 @@ button {
     width: calc(100% - 200px);
     float: right;
 }
+.test-list {
+    display: none;
+}
 /*modify col-20%*/
 .col-xs-5th-1, .col-xs-5th-2, .col-xs-5th-3, .col-xs-5th-4 {
     float: left;

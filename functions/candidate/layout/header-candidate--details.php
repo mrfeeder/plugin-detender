@@ -21,6 +21,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" ></script>
 <script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js" ></script>
 <script type="text/javascript" src="<?= plugins_url('/../../../js/bootstrap.min.js', __FILE__ ) ?>"></script>
+<script type="text/javascript" src="<?= plugins_url('/../../../js/sortElemenets.js', __FILE__ ) ?>"></script>
 <script type="text/javascript" src="<?= plugins_url('/../../../js/main-script.js', __FILE__ ) ?>"></script>
 </head>
 <body <?php body_class(); ?>>

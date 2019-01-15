@@ -28,11 +28,18 @@
             $name = trim($_POST['typeInterview']);
         }
 
+        if(trim($_POST['listposts']) === '') {
+            $nameError = 'Please select Test';
+            $hasError = true;
+        } elseif ($_POST['listposts'] !=  'itempty'){
+            $listposts = trim($_POST['listposts']);
+        }
+
         if(trim($_POST['Duration']) === '') {
             $nameError = 'Please select Duration';
             $hasError = true;
         } else {
-            $name = trim($_POST['Duration']);
+            $Duration = trim($_POST['Duration']);
         }
 
         if(trim($_POST['interviewrs']) === '') {
@@ -90,8 +97,12 @@
                 $post_interviewDetails = 'post_interviewDetails'.$i;
                 $post_InterviewDate = 'post_InterviewDate'.$i;
                 $post_Interviewtime = 'post_Interviewtime'.$i;
+                $post_listposts = 'post_listposts'.$i;
                 if (!isset($postmeta[$post_typeInterview])) {
                     add_post_meta($postid, $post_typeInterview, $_POST['typeInterview']);
+                }
+                if (!isset($postmeta[$post_listposts]) && $_POST['listposts'] !=  'itempty') {
+                    add_post_meta($postid, $post_listposts, $_POST['listposts']);
                 }
                 if (!isset($postmeta[$post_Duration])) {
                     add_post_meta($postid, $post_Duration, $_POST['Duration']);
