@@ -1,4 +1,14 @@
 <?php
+    // add code below to wp-config root
+    // define( 'SMTP_HOST', 'smtp.sendgrid.net' );  // A2 Hosting server name. For example, "a2ss10.a2hosting.com"
+    // define( 'SMTP_AUTH', true );
+    // define( 'SMTP_PORT', '465' );
+    // define( 'SMTP_SECURE', 'ssl' );
+    // define( 'SMTP_USERNAME', 'hojcham3' );  // Username for SMTP authentication
+    // define( 'SMTP_PASSWORD', 'vjsaoy3up3' );          // Password for SMTP authentication
+    // define( 'SMTP_FROM',     'hr@twentyci.asia' );  // SMTP From address
+    // define( 'SMTP_FROMNAME', 'Hr Twentyci' );         // SMTP From name
+
     if (isset($_POST['listposts']) && $_POST['listposts'] != 'itempty') {
         $testlistargs = array( 'post_type' => 'task' ); $listposts = get_posts($testlistargs);
         foreach ($listposts as $listpost) {
