@@ -101,4 +101,5 @@
         wp_enqueue_style( 'appcss' );
     }
     add_action('wp_enqueue_scripts', 'callback_for_setting_up_scripts');
+
 ?>

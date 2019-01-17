@@ -1,6 +1,10 @@
 (function($){
     $(document)
     .ready(function(){
+        $('#submitpost .button#publish').text("Save");
+        $('#submitdiv h2 span').text("Save");
+        $('#submitpost .button#publish').attr("value", "Save");
+
         $( "#datepicker" ).datepicker();
         $(".remove-template").remove();
         $(".nav-tabs a").click(function() {
