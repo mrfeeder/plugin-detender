@@ -5,6 +5,12 @@
     width: 33.33%;
     max-width: 300px;
 }
+.candidate-template-default {
+    display:none;
+}
+.logged-in.candidate-template-default {
+    display: block;
+}
 .outside-area-drop {
     padding: 20px;
     position: relative;
