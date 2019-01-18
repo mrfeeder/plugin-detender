@@ -17,7 +17,7 @@
         <p> <?= $testdetail->name; ?> : <?= $testdetail->value; ?> </p>
     <?php endif; ?>
 <?php endforeach; else: ?>
-    <p>Not test yet</p>
+    <h5>Not test yet</h5>
 <?php endif; ?>
 <?php else: ?>
     <p> Not have email </p>
