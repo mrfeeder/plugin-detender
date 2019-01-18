@@ -12,7 +12,7 @@
     <h3>Please fill your To Do</h3>
     <form action="<?php the_permalink(); ?>" id="todoForm" name="todoForm" method="post">
         <div>
-            <label for="todoTextarea">Todo Form</label>
+            <label for="todoTextarea">Todo Form:</label>
             <textarea name="todoTextarea" id="todoTextarea" cols="30" rows="10"></textarea>
         </div>
         <button type="submit">Save</button>

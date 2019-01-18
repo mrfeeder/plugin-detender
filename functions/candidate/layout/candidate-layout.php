@@ -72,11 +72,11 @@
                         </li>
                         <li class="d-flex flex-column menu-interview">
                             <span><?= $countphone ?></span>
-                            phone interview
+                            in-office interview
                         </li>
                         <li class="d-flex flex-column menu-interview">
                             <span><?= $countoffice ?></span>
-                            in-office interview
+                            Testing
                         </li>
                         <li class="d-flex flex-column menu-interview">
                             <span><?= $countmakeoffer ?></span>
@@ -86,13 +86,13 @@
                 </div>
                 <div class="table-show-candidates">
                     <div class="control">
-                        <a href="" class="btn btn-bulk">bulk</a>
-                        <a href="" class="btn btn-apply">apply</a>
+                        <a href="" class="btn btn-bulk">Bulk</a>
+                        <a href="" class="btn btn-apply">Apply</a>
                         <select name="" id="">
                             <option value="1">1</option>
                             <option value="2">2</option>
                         </select>
-                        <a href="" class="btn btn-filter">filter</a>
+                        <a href="" class="btn btn-filter">Filter</a>
                     </div>
                     <div class="table">
                         <table>

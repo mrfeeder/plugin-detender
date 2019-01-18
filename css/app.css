@@ -302,6 +302,31 @@ button {
 .test-list {
     display: none;
 }
+#testdetails p:nth-last-child(2),
+#testdetails p:last-child {
+    display: none;
+}
+#todo .card {
+    border-width: 0;
+}
+#todoForm textarea,
+#todoForm label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#posts-filter #date {
+    width: 20%;
+}
+.list-interviews {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.list-interviews:last-child {
+    border-bottom: 0;
+    border-width: 0;
+}
 /*modify col-20%*/
 .col-xs-5th-1, .col-xs-5th-2, .col-xs-5th-3, .col-xs-5th-4 {
     float: left;

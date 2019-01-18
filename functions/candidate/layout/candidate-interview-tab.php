@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row flex-column">
     <?php if (isset($postmeta)) {
         for ($k=0; $k < $countsubmit; $k++) {
             $post_typeInterview = 'post_typeInterview'.$k;
@@ -9,15 +9,10 @@
             $post_InterviewDate = 'post_InterviewDate'.$k;
             $post_Interviewtime = 'post_Interviewtime'.$k;
             ?>
-            <div class="list-interviews col-sm-4">
+            <div class="list-interviews col-sm-12">
                 <?php if (isset($postmeta[$post_typeInterview][0])) : ?>
-                    <p>type of interview <span>
+                    <p>Type of interview: <span>
                     <?= $postmeta[$post_typeInterview][0]; ?>
-                    </span></p>
-                <?php endif; ?>
-                <?php if (isset($postmeta[$post_interviewDetails][0])) : ?>
-                    <p>Interview Details: <span>
-                    <?= $postmeta[$post_interviewDetails][0]; ?>
                     </span></p>
                 <?php endif; ?>
                 <?php if (isset($postmeta[$post_interviewrs][0])) : ?>
@@ -43,6 +38,11 @@
                 <?php if (isset($postmeta[$post_Interviewtime][0])) : ?>
                     <p>Interview Time: <span>
                     <?= $postmeta[$post_Interviewtime][0]; ?>
+                    </span></p>
+                <?php endif; ?>
+                <?php if (isset($postmeta[$post_interviewDetails][0])) : ?>
+                    <p>Interview Details: <span>
+                    <?= $postmeta[$post_interviewDetails][0]; ?>
                     </span></p>
                 <?php endif; ?>
             </div>

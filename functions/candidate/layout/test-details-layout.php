@@ -3,16 +3,21 @@
     global $wpdb;
     $testdetails = $wpdb->get_results("
     select name, value from ".$wpdb->prefix."cf7_data_entry where data_id in (SELECT data_id FROM ".$wpdb->prefix."cf7_data_entry where name = 'Email' AND value like '%". $emailcandidate ."%')");
+    $new = $testdetails[9];
+    $new2 = $testdetails[8];
+    array_unshift($testdetails, $new2);
+    array_unshift($testdetails, $new);
     if (isset($testdetails) && $testdetails != null) :
         foreach ($testdetails as $testdetail) :
 ?>
     <?php
         if ( in_array($testdetail->name, array("Repo", "Instruction", "TaskUrl", "Taskname", "Hours", "UrlTask")) ) :
     ?>
+
         <p> <?= $testdetail->name; ?> : <?= $testdetail->value; ?> </p>
     <?php endif; ?>
 <?php endforeach; else: ?>
-    <p> This email is not the same email as the email entered in test or this candidate not have test details</p>
+    <p>Not test yet</p>
 <?php endif; ?>
 <?php else: ?>
     <p> Not have email </p>

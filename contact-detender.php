@@ -39,6 +39,7 @@
 
     function set_vacancy_columns($columns) {
         return array(
+            'cb'                            => '<input type="checkbox" />',
             'title'                         => __('Job Title'),
             '_my_meta_value_status_key'     => __('Status'),
             '_my_meta_value_location_key'   => __('Location'),
@@ -60,8 +61,8 @@
                 echo $metaDataexpired;
                 break;
             case '_my_meta_value_location_key' :
-                $metaDataexpired = get_post_meta( get_the_ID($screen) , '_my_meta_value_location_key' , true );
-                echo $metaDataexpired;
+                $metaDatakey = get_post_meta( get_the_ID($screen) , '_my_meta_value_location_key' , true );
+                echo $metaDatakey;
                 break;
         }
     }
