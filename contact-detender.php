@@ -39,6 +39,7 @@
 
     function set_vacancy_columns($columns) {
         return array(
+            'cb'                            => '<input type="checkbox" />',
             'title'                         => __('Job Title'),
             '_my_meta_value_status_key'     => __('Status'),
             '_my_meta_value_location_key'   => __('Location'),
@@ -60,8 +61,8 @@
                 echo $metaDataexpired;
                 break;
             case '_my_meta_value_location_key' :
-                $metaDataexpired = get_post_meta( get_the_ID($screen) , '_my_meta_value_location_key' , true );
-                echo $metaDataexpired;
+                $metaDatakey = get_post_meta( get_the_ID($screen) , '_my_meta_value_location_key' , true );
+                echo $metaDatakey;
                 break;
         }
     }
@@ -85,12 +86,21 @@
     function my_plugin_templates( $template ) {
         $post_types = array('candidate');
         $current_user = wp_get_current_user();
-        if (user_can( $current_user, 'administrator' )) {
+        if (is_user_logged_in()) {
             if (is_singular($post_types)) {
                 $template = plugin_dir_path( __FILE__ ) . 'functions/candidate/layout/candidate--details-layout.php';
             }
             return $template;
+        }else {
+            return $template;
         }
     }
     add_filter('template_include', 'my_plugin_templates');
+
+    function callback_for_setting_up_scripts() {
+        wp_register_style( 'appcss', plugins_url('/css/app.css', __FILE__ ));
+        wp_enqueue_style( 'appcss' );
+    }
+    add_action('wp_enqueue_scripts', 'callback_for_setting_up_scripts');
+
 ?>

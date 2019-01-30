@@ -44,10 +44,10 @@
     function my_bulk_post_updated_messages_filter( $bulk_messages, $bulk_counts ) {
 
         $bulk_messages['vacancy'] = array(
-            'locked'    => _n( '%s vacancy not updated, somebody is editing it.', '%s vacancys not updated, somebody is editing them.', $bulk_counts['locked'] ),
-            'deleted'   => _n( '%s vacancy permanently deleted.', '%s vacancys permanently deleted.', $bulk_counts['deleted'] ),
-            'trashed'   => _n( '%s vacancy moved to the Trash.', '%s vacancys moved to the Trash.', $bulk_counts['trashed'] ),
-            'untrashed' => _n( '%s vacancy restored from the Trash.', '%s vacancys restored from the Trash.', $bulk_counts['untrashed'] ),
+            'locked'    => _n( '%s vacancy not updated, somebody is editing it.', '%s vacancies not updated, somebody is editing them.', $bulk_counts['locked'] ),
+            'deleted'   => _n( '%s vacancy permanently deleted.', '%s vacancies permanently deleted.', $bulk_counts['deleted'] ),
+            'trashed'   => _n( '%s vacancy moved to the Trash.', '%s vacancies moved to the Trash.', $bulk_counts['trashed'] ),
+            'untrashed' => _n( '%s vacancy restored from the Trash.', '%s vacancies restored from the Trash.', $bulk_counts['untrashed'] ),
         );
 
         return $bulk_messages;
